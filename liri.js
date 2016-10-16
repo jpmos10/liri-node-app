@@ -25,7 +25,7 @@ for (i = 4; i < process.argv.length; i++) {
 console.log("Type my-tweets , spotify-this-song (followed by song name) , movie-this (followed my movie name) , or do-what-it-says to begin.");
 
 function liri() {
-    //action statement, switch statement to declare what action to execute.
+    //switch statement to switch to appropriate function
     switch (userCommand) {
 
         case 'my-tweets':
