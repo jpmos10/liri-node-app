@@ -1,6 +1,6 @@
 //grab keys.js and store in variable
 
-var Keys = require('./keys.js');
+var keys = require('./keys.js');
 // var keyList = twitKeys.twitterKeys;
 
 // Includes the FS package for reading and writing packages 
@@ -67,8 +67,8 @@ function myTweets() {
     client.get('statuses/user_timeline', parameters, function(error, tweets, response) {
         if (!error) {
             for (i = 0; i < tweets.length; i++) {
-                // var returnedData = ('Number: ' + (i+1) + '\n' + tweets[i].created_at + '\n' + tweets[i].text + '\n');
-                console.log(returnedData);
+                var myTweet = ('Number: ' + (i+1) + '\n' + tweets[i].created_at + '\n' + tweets[i].text + '\n');
+                console.log(myTweet);
                 console.log("-------------------------");
             }
         };
@@ -76,18 +76,18 @@ function myTweets() {
 };
 
 function spotifyThis() {
-    conole.log('loaded')
+    console.log('loaded')
 
 
-    var Song;
-    Song = userArgument;
+    var track;
+    track = userArgument;
 
-    spotify.search({ type: 'track', query: searchTrack }, function(err, data) {
+    spotify.search({ type: 'track', query: track}, function(err, data) {
         if (err) {
             console.log('Error occurred: ' + err);
             return;
         } else {
-            //tried searching for release year! Spotify doesn't return this!
+            
             console.log("Artist: " + data.tracks.items[0].artists[0].name);
             console.log("Song: " + data.tracks.items[0].name);
             console.log("Album: " + data.tracks.items[0].album.name);
@@ -100,3 +100,4 @@ function spotifyThis() {
 
 
 }
+liri();
