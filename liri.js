@@ -80,7 +80,11 @@ function spotifyThis() {
 
 
     var track;
-    track = userArgument;
+    if(userArgument === undefined){
+		track = "I am A Stone";
+	}else{
+		track = userArgument;
+	}   
 
     spotify.search({ type: 'track', query: track}, function(err, data) {
         if (err) {
