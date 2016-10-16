@@ -76,7 +76,7 @@ function myTweets() {
 };
 
 function spotifyThis() {
-    console.log('loaded')
+    
 
 
     var track;
@@ -94,10 +94,37 @@ function spotifyThis() {
             console.log("Preview Here: " + data.tracks.items[0].preview_url);
         }
     });
+ };
+function movieThis(){
+	
+
+	
+	var Movie;
+	if(userArgument === undefined){
+		Movie = "Mr. Nobody";
+	}else{
+		Movie = userArgument;
+	};
+
+	var url = 'http://www.omdbapi.com/?t=' + Movie +'&y=&plot=long&tomatoes=true&r=json';
+   	request(url, function(error, response, body){
+	    if(!error && response.statusCode == 200){
+	        body = JSON.parse(body);
+            console.log('Movie Title: ' + body.Title);
+            console.log('Year Released: ' + body.Released);
+            console.log('Rating: ' + body.Rated);
+            console.log('Production Country: ' + body.Country);
+            console.log('Language: ' + body.Language);
+            console.log('Plot: ' + body.Plot);
+            console.log('Actors: ' + body.Actors);
+            console.log('Rotten Tomatoes Rating: ' + body.tomatoUserRating);
+            console.log('Rotten Tomatoes URL: ' + body.tomatoURL);
+	    }
+    });
+};
 
 
 
 
 
-}
 liri();
